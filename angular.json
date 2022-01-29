@@ -106,13 +106,7 @@
         },
         "deploy": {
           "builder": "@angular/fire:deploy",
-          "options": {
-            "prerender": false,
-            "ssr": false,
-            "browserTarget": "CarsLTG:build:production",
-            "firebaseProject": "carsltg",
-            "firebaseHostingSite": "carsltg"
-          }
+          "options": {}
         }
       }
     }

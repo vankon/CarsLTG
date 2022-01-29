@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Firestore } from '@angular/fire/firestore';
-import { collection } from 'firebase/firestore';
-import { collectionData } from 'rxfire/firestore';
-import { Observable } from 'rxjs';
-import { CarsService } from '../shared/cars.service';
+import { CarFirebaseService } from '../shared/car-firebase.service';
+import { IDictionary } from '../_models/cars.model';
 
 @Component({
   selector: 'app-test',
@@ -11,21 +8,30 @@ import { CarsService } from '../shared/cars.service';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
-  item$: Observable<any>;
+  brands: IDictionary[] = [];
+  bodyTypes: IDictionary[] = [];
+  cars: any[] = [];
 
   constructor(
-    private carsService: CarsService,
-    firestore: Firestore) {
-    const collect = collection(firestore, 'brands');
-    this.item$ = collectionData(collect);
-    this.item$.subscribe(data => {
-      console.log(data)
-    })
+    private carService: CarFirebaseService) {
   }
+
   ngOnInit(): void {
-    this.carsService.test().subscribe(data => {
-      console.log(data)
-    })
+    this.carService.getBrands()
+      .subscribe((data: IDictionary[]) => {
+        this.brands = data;
+      });
+
+    this.carService.getBodyType()
+      .subscribe((data: IDictionary[]) => {
+        this.bodyTypes = data;
+      });
+
+    this.carService.getCars()
+      .subscribe((data: any[]) => {
+        console.log(data);
+        this.cars = data;
+      });
   }
 
 }

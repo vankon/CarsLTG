@@ -1,6 +1,19 @@
 <p>test works!</p>
 <ul>
-    <li *ngFor="let item of item$ | async">
-      {{ item.name }}
-    </li>
-  </ul>
+  <li *ngFor="let item of brands">
+    <img [src]="item.image" alt="">
+    {{ item.name }}
+  </li>
+</ul>
+<ul>
+  <li *ngFor="let item of bodyTypes">
+    <img [src]="item.image" alt="">
+    {{ item.name }}
+  </li>
+</ul>
+<ul>
+  <li *ngFor="let item of cars">
+    <img [src]="item.image" alt="">
+    {{ item.name }}
+  </li>
+</ul>
