@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "carsltg": {
+      "hosting": {
+        "CarsLTG": [
+          "carsltg"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "carsltg"
+  }
+}
