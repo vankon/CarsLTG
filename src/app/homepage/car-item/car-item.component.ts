@@ -9,15 +9,17 @@ import { CarFirebaseService } from 'src/app/_services/car-firebase.service';
 })
 export class AppCarItemComponent implements OnInit {
   @Input() model: Car;
-  brandImage = '';
 
   constructor(private carService: CarFirebaseService) {
-   }
+  }
 
   ngOnInit(): void {
-    this.model?.brand.get().then((x: any) =>
+    if (this.model.brand_image)
+      return
+
+    this.model.brand?.get().then((x: any) =>
       this.carService.getImageUrl(x.data().image).subscribe(url =>
-        this.brandImage = url
+        this.model.brand_image = url
       ))
   }
 

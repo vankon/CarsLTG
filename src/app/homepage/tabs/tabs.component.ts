@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseDictionary, Car } from 'src/app/_models/cars.model';
 import { CarFirebaseService } from 'src/app/_services/car-firebase.service';
+import { SamiService } from 'src/app/_services/sami.service';
 
 interface Tab {
   type: string;
@@ -14,7 +15,8 @@ interface Tab {
   styleUrls: ['./tabs.component.scss']
 })
 export class AppTabsComponent implements OnInit {
-  cars: any[] = [];
+  cars: Car[] = [];
+  bsetSelling: Car[] = [];
 
   tabs: Tab[] = [
     {
@@ -34,11 +36,15 @@ export class AppTabsComponent implements OnInit {
     }
   ];
 
-  constructor(private carService: CarFirebaseService) {
+  constructor(
+    private carService: CarFirebaseService,
+    private samiService: SamiService
+  ) {
   }
 
   ngOnInit(): void {
     this.getCarList('most_selling');
+    this.getData();
   }
 
   changeTab(tab: Tab) {
@@ -57,5 +63,11 @@ export class AppTabsComponent implements OnInit {
       .subscribe((data: Car[]) => {
         this.cars = data;
       });
+  }
+
+  private getData() {
+    this.samiService.getData().subscribe(data => {
+      this.bsetSelling = data
+    })
   }
 }

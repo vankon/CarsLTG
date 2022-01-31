@@ -12,6 +12,7 @@ export interface Car extends BaseDictionary {
     most_selling: boolean;
     most_visited: boolean;
     year: any;
-    body_type: DocumentReference;
-    brand: DocumentReference;
+    body_type?: DocumentReference;
+    brand?: DocumentReference;
+    brand_image: string;
 }

@@ -1,7 +1,8 @@
 <div *ngIf="model" class="auto-card">
     <div class="auto-card-inner">
-        <div *ngIf="brandImage" class="auto-card__brand">
-            <img [src]="brandImage" alt="">
+        <div *ngIf="model.brand_image" class="auto-card__brand">
+            <img [src]="model.brand_image" alt="">
+            <span>{{model.brand_image}}</span>
         </div>
         <div class="auto-card__image">
             <img [src]="model.image" alt="">

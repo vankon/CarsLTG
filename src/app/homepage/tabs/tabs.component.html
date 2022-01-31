@@ -1,3 +1,8 @@
+<h2>best_selling_car_models</h2>
+<div class="car-list">
+    <app-car-item class="car-item" *ngFor="let item of bsetSelling" [model]="item"></app-car-item>
+</div>
+
 <div class="tab-nav">
     <div class="tab-nav-list">
         <a *ngFor="let tab of tabs" (click)="changeTab(tab)" [ngClass]="{'active': tab.selected}">{{ tab.name }}</a>

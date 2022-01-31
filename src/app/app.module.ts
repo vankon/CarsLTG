@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -13,6 +13,7 @@ import { SellComponent } from './sell/sell.component';
 import { BuyComponent } from './buy/buy.component';
 import { MarketComponent } from './market/market.component';
 import { ContactComponent } from './contact/contact.component';
+import { JwtInterceptor } from './_shared/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,9 @@ import { ContactComponent } from './contact/contact.component';
     AngularFirestoreModule,
     AngularFireStorageModule,
     LayoutModule
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
