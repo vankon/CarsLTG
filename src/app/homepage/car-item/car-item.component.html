@@ -1,0 +1,17 @@
+<div *ngIf="model" class="auto-card">
+    <div class="auto-card-inner">
+        <div *ngIf="brandImage" class="auto-card__brand">
+            <img [src]="brandImage" alt="">
+        </div>
+        <div class="auto-card__image">
+            <img [src]="model.image" alt="">
+        </div>
+        <div class="auto-card__info">
+            <div class="auto-card__year">{{ model.year | date:'yyyy' }}</div>
+            <div class="auto-card__name">{{ model.name }}</div>
+        </div>
+    </div>
+    <div class="auto-card__offers">
+        <a href="#">1420 offers <span class="material-icons">navigate_next</span></a>
+    </div>
+</div>

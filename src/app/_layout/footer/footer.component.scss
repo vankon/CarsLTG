@@ -1,0 +1,124 @@
+@import 'variables';
+
+:host {
+    display: block;
+    padding-bottom: 2rem;
+
+    a {
+        color: #000;
+    }
+}
+
+.footer-row {
+    border-top: 2px solid #d4d0d0;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2rem;
+    margin-bottom: 1rem;
+
+    @include media-breakpoint('lt-md') {
+        display: block;
+        text-align: center;
+    }
+
+    .col {
+        &-3 {
+            flex: 0 0 25%;
+
+            @include media-breakpoint('lt-md') {
+                margin-bottom: 2rem;
+            }
+        }
+
+        &-6 {
+            flex: 0 0 50%;
+
+            @include media-breakpoint('lt-md') {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+
+    .col-logo {
+        .logo {
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .social {
+            font-size: 2em;
+
+            a {
+                margin-right: 1rem;
+            }
+        }
+    }
+
+    .col-navi {
+        display: flex;
+        justify-content: space-between;
+
+        @include media-breakpoint('lt-md') {
+            display: block;
+            text-align: center;
+        }
+
+        ul {
+            li {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    .col-links {
+        text-align: right;
+
+        @include media-breakpoint('lt-md') {
+            text-align: center;
+        }
+
+        >a {
+            display: inline-block;
+            width: 200px;
+            text-align: center;
+            padding: 1rem 2rem;
+            background: #000;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        .lang {
+            display: flex;
+            justify-content: flex-end;
+
+            @include media-breakpoint('lt-md') {
+                justify-content: center;
+            }
+    
+            &-select {
+                cursor: pointer;
+                width: 200px;
+                padding: 1rem 2rem;
+                background: #fff;
+                border-radius: 6px;
+                box-shadow: 0 0 12px 3px rgba(#000, .1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                >span {
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+}
+
+.copyright {
+    text-align: center;
+    color: lighten(#000, 50%);
+}

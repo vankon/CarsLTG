@@ -1,0 +1,47 @@
+@import 'variables';
+
+.section-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+
+    @include media-breakpoint('lt-md') {
+        flex-wrap: wrap;
+        text-align: center;
+        justify-content: center;
+    }
+
+    h2 {
+        font-size: 2em;
+
+        @include media-breakpoint('lt-md') {
+            font-size: 1.5em;
+            margin-bottom: 1rem;
+        }
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        color: #000;
+
+        >span {
+            margin-left: .5rem;
+        }
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        color: #000;
+
+        >span {
+            margin-left: .5rem;
+        }
+    }
+}
+
+section {
+    margin-bottom: 12rem;
+}

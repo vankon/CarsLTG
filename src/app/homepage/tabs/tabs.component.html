@@ -1,0 +1,10 @@
+<div class="tab-nav">
+    <div class="tab-nav-list">
+        <a *ngFor="let tab of tabs" (click)="changeTab(tab)" [ngClass]="{'active': tab.selected}">{{ tab.name }}</a>
+    </div>
+</div>
+<div class="tab-content">
+    <div class="car-list">
+        <app-car-item class="car-item" *ngFor="let item of cars" [model]="item"></app-car-item>
+    </div>
+</div>

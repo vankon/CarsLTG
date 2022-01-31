@@ -1,13 +1,17 @@
-export interface IDictionary {
+import { DocumentReference } from "@angular/fire/compat/firestore";
+
+export interface BaseDictionary {
     id: string;
     name: string;
     image: string;
 }
 
-export interface ICar extends IDictionary {
+export interface Car extends BaseDictionary {
     best_selling: boolean;
     is_canada: boolean;
     most_selling: boolean;
     most_visited: boolean;
-    year: Date
+    year: any;
+    body_type: DocumentReference;
+    brand: DocumentReference;
 }

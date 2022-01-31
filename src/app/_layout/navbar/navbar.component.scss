@@ -1,0 +1,76 @@
+@import 'variables';
+
+:host {
+    display: block;
+    margin: 0 3rem;
+
+    @include media-breakpoint('lt-md') {
+        margin: 0 0 2rem 0;
+        width: 100%;
+    }
+}
+
+ul {
+    display: flex;
+    align-items: center;
+
+    @include media-breakpoint('lt-md') {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    li {
+        margin: 0 1rem;
+
+        a {
+            display: block;
+            text-decoration: none;
+            padding: .75rem 0;
+            position: relative;
+            cursor: pointer !important;
+
+            &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                right: 50%;
+                height: 1px;
+                background: $color-primary;
+                opacity: 0;
+                visibility: hidden;
+                transition: .3s;
+            }
+
+            &:hover {
+                color: #000;
+
+                &:after {
+                    visibility: visible;
+                    opacity: 1;
+                    left: 0;
+                    right: 0;
+                }
+            }
+        }
+
+        &.active {
+            a {
+                font-weight: bold;
+                color: #000;
+
+                &:after {
+                    visibility: visible;
+                    opacity: 1;
+                    left: 0;
+                    right: 0;
+                }
+            }
+        }
+    }
+
+    a {
+        color: lighten(#000, 50%);
+    }
+}

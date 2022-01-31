@@ -1,0 +1,112 @@
+@import 'variables';
+
+:host {
+    display: block;
+}
+
+.auto-card {
+    background: #fff;
+    border-radius: 9px;
+    box-shadow: 0 0 12px 3px rgba(#000, .1);
+    position: relative;
+    padding: 1rem;
+    overflow: hidden;
+    height: 320px;
+
+    @include media-breakpoint('lt-md') {
+        height: auto;
+    }
+
+    &-inner {
+        padding-top: 240px;
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        background: url(../../../assets/bg_card.png) 0 0 repeat;
+        top: 4rem;
+        right: 0;
+        width: 190px;
+        height: 110px;
+        border-top-left-radius: 26px;
+        z-index: 0;
+    }
+
+    &__brand {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        display: flex;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        z-index: 10;
+
+        img {
+            object-fit: contain;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+
+    &__image {
+        position: absolute;
+        right: 0;
+        top: 80px;
+        z-index: 1;
+    }
+
+    &__year {
+        color: lighten(#000, 50%);
+        display: block;
+        margin-bottom: .5rem;
+    }
+
+    &__info {
+        position: relative;
+        z-index: 10;
+    }
+
+    &__offers {
+        opacity: 0;
+        visibility: hidden;
+        transition: .3s;
+        transform: translateY(-20px);
+        text-align: center;
+        padding: 2rem 0 0;
+
+        @include media-breakpoint('lt-md') {
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+        }
+
+        a {
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+
+            &:hover {
+                color: $color-primary;
+            }
+
+            >span {
+                margin-left: .5rem;
+            }
+        }
+    }
+
+    &:hover {
+        height: auto;
+
+        .auto-card__offers {
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+        }
+    }
+}

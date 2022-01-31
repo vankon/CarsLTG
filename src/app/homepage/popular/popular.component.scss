@@ -1,0 +1,28 @@
+@import 'variables';
+
+:host {
+    display: block;
+}
+
+.car-list {
+    display: flex;
+    margin: 0 -1rem;
+    height: 320px;
+
+    @include media-breakpoint('lt-md') {
+        flex-wrap: wrap;
+        margin: 0 0 6rem 0;
+        height: auto;
+    }
+
+    .car-item {
+        flex: 0 0 calc(25% - 2rem);
+        margin: 0 1rem 2rem 1rem;
+
+        @include media-breakpoint('lt-md') {
+            flex: 0 0 100%;
+            margin: 0 0 2rem 0;
+        }
+
+    }
+}

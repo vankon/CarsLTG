@@ -1,0 +1,17 @@
+<header class="header">
+  <div class="container">
+    <div class="header-container">
+      <a href="/" class="logo">auto.market</a>
+      <app-navbar></app-navbar>
+      <div class="header-toolbar">
+        <a href="#"><span class="material-icons">directions_car</span></a>
+        <a href="#"><span class="material-icons">star_border</span></a>
+        <a [routerLink]="['/account/sign-in']">
+          <span class="material-icons">person_outline</span>
+          Sign in
+        </a>
+        <a class="btn-primary" [routerLink]="['/account/sign-up']">Sign up</a>
+      </div>
+    </div>
+  </div>
+</header>
