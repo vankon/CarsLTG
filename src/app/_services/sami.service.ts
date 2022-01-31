@@ -33,7 +33,7 @@ export class SamiService {
                 id: item.vehicle.id,
                 name: item.vehicle.model_name,
                 image: item.vehicle.picture_url,
-                year: new Date(item.year),
+                year: new Date(item.year, 0),
                 brand_image: item.vehicle.make?.logo_url,
                 best_selling: false,
                 is_canada: false,
